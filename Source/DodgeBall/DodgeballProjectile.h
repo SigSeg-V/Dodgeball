@@ -26,6 +26,9 @@ public:
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const
 	           FHitResult& Hit);
 
+	UPROPERTY(EditAnywhere, Category = Dodgeball)
+	float Damage = 34.f;
+	
 	FORCEINLINE class UProjectileMovementComponent* GetProjectileMovementComponent() const { return ProjectileMovement; }
 protected:
 	// Called when the game starts or when spawned

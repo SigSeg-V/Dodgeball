@@ -4,6 +4,7 @@
 #include "DodgeballProjectile.h"
 #include "DodgeBallCharacter.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "HealthComponent.h"
 
 // Sets default values
 ADodgeballProjectile::ADodgeballProjectile()
@@ -32,10 +33,19 @@ void ADodgeballProjectile::OnHit(UPrimitiveComponent *HitComp, AActor *OtherActo
 	FVector NormalImpulse, const FHitResult &Hit)
 {
 	// only want to deal with when we hit the player
-	if (Cast<ADodgeBallCharacter>(OtherActor) == nullptr)
+	if (const ADodgeBallCharacter* Player = Cast<ADodgeBallCharacter>(OtherActor); Player == nullptr)
 	{
 		return;
 	}
+	else
+	{
+		if (UHealthComponent* HealthComponent = Player->FindComponentByClass<UHealthComponent>();
+			HealthComponent != nullptr)
+		{
+			HealthComponent->LoseHealth(Damage);
+		}
+	}
+	Destroy();
 
 	// delete when hit player
 	Destroy();

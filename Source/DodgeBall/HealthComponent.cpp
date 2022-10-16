@@ -16,14 +16,14 @@ UHealthComponent::UHealthComponent()
 }
 
 
-void UHealthComponent::LoseHealth(float Damage)
+void UHealthComponent::LoseHealth(int Damage)
 {
 	Health -= Damage;
 
 	// cap to +ve nums to make sure no strange bugs can occur from underflow
 	Health = (Health > 0) * Health;
 
-	if (Health)
+	if (!Health)
 	{
 		UKismetSystemLibrary::QuitGame(this,nullptr,
 			EQuitPreference::Quit,true);

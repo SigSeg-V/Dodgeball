@@ -1,11 +1,11 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "e:\\unrealprojects\\_ue5book\\dodgeball\\plugins\\developer\\riderlink\\source\\ridershaderinfo\\ridershaderinfo.cpp",
+        "Source": "e:\\unrealprojects\\vsc\\dodgeball\\plugins\\developer\\riderlink\\source\\ridershaderinfo\\ridershaderinfo.cpp",
         "ProvidedModule": "",
         "Includes": [
-            "e:\\unrealprojects\\_ue5book\\dodgeball\\plugins\\developer\\riderlink\\intermediate\\build\\win64\\unrealeditor\\development\\ridershaderinfo\\definitions.h",
-            "e:\\unrealprojects\\_ue5book\\dodgeball\\plugins\\developer\\riderlink\\source\\ridershaderinfo\\ridershaderinfo.h",
+            "e:\\unrealprojects\\vsc\\dodgeball\\plugins\\developer\\riderlink\\intermediate\\build\\win64\\unrealeditor\\development\\ridershaderinfo\\definitions.h",
+            "e:\\unrealprojects\\vsc\\dodgeball\\plugins\\developer\\riderlink\\source\\ridershaderinfo\\ridershaderinfo.h",
             "e:\\unrealengine\\ue_5.0\\engine\\source\\runtime\\core\\public\\modules\\moduleinterface.h",
             "e:\\unrealengine\\ue_5.0\\engine\\source\\runtime\\core\\public\\coretypes.h",
             "e:\\unrealengine\\ue_5.0\\engine\\source\\runtime\\core\\public\\hal\\platform.h",

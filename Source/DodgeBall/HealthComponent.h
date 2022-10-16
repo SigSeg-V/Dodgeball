@@ -15,11 +15,15 @@ class DODGEBALL_API UHealthComponent : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UHealthComponent();
-
+	
+	void LoseHealth(float Damage);
+	
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
-
+	
+	UPROPERTY(EditDefaultsOnly, Category = Health)
+	float Health = 100.f;
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;

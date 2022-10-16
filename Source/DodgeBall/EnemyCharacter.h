@@ -30,9 +30,6 @@ protected:
 	// Rotate enemy player to always be facing the player
 	bool LookAtActor(const AActor* TargetActor);
 
-	// Check to see if the player can be seen
-	bool CanSeeActor(const AActor* TargetActor) const;
-
 	// enemy can see player on current frame
 	bool bCanSeePlayer = false;
 	

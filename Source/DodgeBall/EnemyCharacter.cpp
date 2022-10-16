@@ -2,12 +2,15 @@
 
 
 #include "EnemyCharacter.h"
+
+#include "DodgeballFunctionLibrary.h"
 #include "Engine/World.h"
-#include "DrawDebugHelpers.h"
 #include "TimerManager.h"
 #include "DodgeballProjectile.h"
+#include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Kismet/GameplayStatics.h"
+
 // Sets default values
 AEnemyCharacter::AEnemyCharacter()
 {
@@ -27,9 +30,14 @@ void AEnemyCharacter::BeginPlay()
 bool AEnemyCharacter::LookAtActor(const AActor* TargetActor)
 {
 	if (TargetActor == nullptr) {return false;} // we can't process without a target
-
+	
+	// create list of actors to ignore, namely target and source actor
+	TArray<const AActor*> IgnoreList;
+	IgnoreList.Add(this);
+	IgnoreList.Add(TargetActor);
+	
 	// check to see if we can see the actor
-	if (CanSeeActor(TargetActor))
+	if (UDodgeballFunctionLibrary::CanSeeActor(GetWorld(), GetActorLocation(), TargetActor, IgnoreList))
 	{
 		// get rotation needed to target TargetActor
 		const FVector Start = GetActorLocation();
@@ -45,65 +53,20 @@ bool AEnemyCharacter::LookAtActor(const AActor* TargetActor)
 	return false;
 }
 
-
-bool AEnemyCharacter::CanSeeActor(const AActor* TargetActor) const
-{
-	// No valid character
-	if (TargetActor == nullptr)
-	{
-		return false;
-	}
-
-	// Storage for the line hit result
-	FHitResult Hit;
-
-	// get start and end of line trace
-	FVector Start = SightSource->GetComponentLocation();
-	FVector End = TargetActor->GetActorLocation();
-
-	// the trace channel we want to compare against
-	ECollisionChannel Channel = ECC_GameTraceChannel1;
-
-	// Rotation of the shape used in sweep trace (quaternion)
-	FQuat Rotation = FQuat::Identity;
-
-	// shape to use for the sweep trace
-	FCollisionShape Shape = FCollisionShape::MakeBox(FVector(20.f, 20.f, 20.f));
-	
-	// ignore the casting actor in case the line trace stops as soon as it is cast
-	// happens when the line is cast inside the model -- it is already touching
-	FCollisionQueryParams QueryParams;
-
-	// ignore casting actor
-	QueryParams.AddIgnoredActor(this);
-
-	// ignore the target actor -- model can block visibility calcs
-	QueryParams.AddIgnoredActor(TargetActor);
-
-	// feed query params to our line trace
-	// set the trace
-	GetWorld()->LineTraceSingleByChannel(Hit, Start, End, Channel, QueryParams);
-	
-	// set sweep trace
-	// GetWorld()->SweepSingleByChannel(Hit, Start, End, Rotation, Channel, Shape);
-	
-	// drawing the debug line along with the actual trace
-	DrawDebugLine(GetWorld(), Start, Hit.bBlockingHit ? Hit.Location : End, FColor::Red);
-
-	// return true if it was non blocking
-	return !Hit.bBlockingHit;
-}
-
 void AEnemyCharacter::ThrowDodgeball() const
 {
 	if (DodgeballClass == nullptr) {return;}
 	
 	const FVector FVec = GetActorForwardVector();
 	constexpr float SpawnDistance = 40.f;
-
+	
+	
 	const FVector SpawnLocation = GetActorLocation() + (FVec * SpawnDistance);
-
-	GetWorld()->SpawnActor<ADodgeballProjectile>(DodgeballClass, SpawnLocation, GetActorRotation());
+	const FTransform SpawnTransform (GetActorRotation(), SpawnLocation);
+	
+	ADodgeballProjectile* Projectile = GetWorld()->SpawnActorDeferred<ADodgeballProjectile>(DodgeballClass, SpawnTransform);
+	Projectile->GetProjectileMovementComponent()->InitialSpeed = 2200.f;
+	Projectile->FinishSpawning(SpawnTransform);
 }
 
 // Called every frame

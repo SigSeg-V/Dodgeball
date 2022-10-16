@@ -1,29 +1,29 @@
-E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\Module.RiderLogging.cpp
+E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\Module.RiderLogging.cpp
 /I .
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RiderLogging\Private
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RiderLogging\Private
 /I Runtime
 /I Runtime\TraceLog\Public
 /I Runtime\Core\Public
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RD\src
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RD\src\rd_core_cpp
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RD\src\rd_core_cpp\src\main
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp\src\main
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp\src\main\util
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RD\src\rd_gen_cpp\src
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RD\thirdparty
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RD\thirdparty\ordered-map\include
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RD\thirdparty\optional\tl
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RD\thirdparty\variant\include
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RD\thirdparty\string-view-lite\include
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RD\thirdparty\spdlog\include
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RD\thirdparty\clsocket\src
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RD\thirdparty\CTPL\include
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RiderLink\Public\Model\Library
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RiderLink\Public\Model\RdEditorProtocol
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RiderLink\Public
-/I E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Source\RiderBlueprint\Public
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RD\src
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RD\src\rd_core_cpp
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RD\src\rd_core_cpp\src\main
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp\src\main
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RD\src\rd_framework_cpp\src\main\util
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RD\src\rd_gen_cpp\src
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RD\thirdparty
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RD\thirdparty\ordered-map\include
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RD\thirdparty\optional\tl
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RD\thirdparty\variant\include
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RD\thirdparty\string-view-lite\include
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RD\thirdparty\spdlog\include
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RD\thirdparty\clsocket\src
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RD\thirdparty\CTPL\include
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RiderLink\Public\Model\Library
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RiderLink\Public\Model\RdEditorProtocol
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RiderLink\Public
+/I E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Source\RiderBlueprint\Public
 /I ThirdParty\mimalloc\include
 /I "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\INCLUDE"
 /I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"
@@ -31,9 +31,9 @@ E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Intermediate\Bu
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"
-/FI"E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\Definitions.h"
-/Fo"E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\Module.RiderLogging.cpp.obj"
-/sourceDependencies E:\UnrealProjects\_UE5Book\DodgeBall\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\Module.RiderLogging.cpp.json
+/FI"E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\Definitions.h"
+/Fo"E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\Module.RiderLogging.cpp.obj"
+/sourceDependencies E:\UnrealProjects\VSC\Dodgeball\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\Module.RiderLogging.cpp.json
 /Zc:inline
 /nologo
 /Oi

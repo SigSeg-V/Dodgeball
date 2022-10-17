@@ -9,12 +9,13 @@
 #include "InputAction.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "HealthInterface.h"
 
 #include "GameFramework/Character.h"
 #include "DodgeBallCharacter.generated.h"
 
 UCLASS(config=Game)
-class ADodgeBallCharacter : public ACharacter
+class ADodgeBallCharacter : public ACharacter, public IHealthInterface
 {
 	GENERATED_BODY()
 
@@ -73,6 +74,14 @@ protected:
 	/** Handler for when a touch input stops. */
 	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
 
+	/**
+	 *
+	 * IHealthInterface impl
+	 *
+	 */
+
+	virtual void OnDeath_Implementation() override;
+	
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;

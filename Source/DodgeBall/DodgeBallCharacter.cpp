@@ -11,6 +11,7 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ADodgeBallCharacter
@@ -150,6 +151,11 @@ void ADodgeBallCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Lo
 void ADodgeBallCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
 {
 	StopJumping();
+}
+
+void ADodgeBallCharacter::OnDeath_Implementation()
+{
+	UKismetSystemLibrary::QuitGame(this, nullptr, EQuitPreference::Quit, true);
 }
 
 void ADodgeBallCharacter::TurnAtRate(float Rate)

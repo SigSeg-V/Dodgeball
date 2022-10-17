@@ -3,7 +3,7 @@
 
 #include "HealthComponent.h"
 
-#include "Kismet/KismetSystemLibrary.h"
+#include "HealthInterface.h"
 
 // Sets default values for this component's properties
 UHealthComponent::UHealthComponent()
@@ -23,10 +23,9 @@ void UHealthComponent::LoseHealth(int Damage)
 	// cap to +ve nums to make sure no strange bugs can occur from underflow
 	Health = (Health > 0) * Health;
 
-	if (!Health)
+	if (!Health && GetOwner()->Implements<UHealthInterface>())
 	{
-		UKismetSystemLibrary::QuitGame(this,nullptr,
-			EQuitPreference::Quit,true);
+		IHealthInterface::Execute_OnDeath(GetOwner());
 	}
 }
 

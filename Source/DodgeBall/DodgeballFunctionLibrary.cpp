@@ -44,7 +44,7 @@ bool UDodgeballFunctionLibrary::CanSeeActor(const UWorld* World, FVector Locatio
 	//World->SweepSingleByChannel(Hit, Start, End, Rotation, Channel, Shape);
 	
 	// drawing the debug line along with the actual trace
-	DrawDebugLine(World, Start, Hit.bBlockingHit ? Hit.Location : End, FColor::Red);
+	DrawDebugLine(World, Start, Hit.bBlockingHit ? Hit.Location : End, FColor::Green);
 
 	// return true if it was non blocking
 	return !Hit.bBlockingHit;

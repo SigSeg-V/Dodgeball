@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "LookAtActorComponent.h"
 #include "Engine/World.h"
 
 #include "GameFramework/Character.h"
@@ -18,7 +19,7 @@ public:
 	AEnemyCharacter();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = LookAt, meta = (AllowPrivateAccess = "true"))
-	USceneComponent* SightSource;
+	ULookAtActorComponent* LookAtActorComponent;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Dodgeball)
 	TSubclassOf<class ADodgeballProjectile> DodgeballClass;
@@ -26,9 +27,6 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-	// Rotate enemy player to always be facing the player
-	bool LookAtActor(const AActor* TargetActor);
 
 	// enemy can see player on current frame
 	bool bCanSeePlayer = false;

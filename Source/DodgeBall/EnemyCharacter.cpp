@@ -16,41 +16,22 @@ AEnemyCharacter::AEnemyCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	SightSource = CreateDefaultSubobject<USceneComponent>(TEXT("SightSource"));
-	SightSource->SetupAttachment(RootComponent);
+
+	// look at character component init
+	LookAtActorComponent = CreateDefaultSubobject<ULookAtActorComponent>(TEXT("Look At Actor"));
+	LookAtActorComponent->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts or when spawned
 void AEnemyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
-}
 
-bool AEnemyCharacter::LookAtActor(const AActor* TargetActor)
-{
-	if (TargetActor == nullptr) {return false;} // we can't process without a target
+	// Get character currently controlled by the player
+	ACharacter* PlayerCharacter = UGameplayStatics::GetPlayerCharacter(this, 0);
 	
-	// create list of actors to ignore, namely target and source actor
-	TArray<const AActor*> IgnoreList;
-	IgnoreList.Add(this);
-	IgnoreList.Add(TargetActor);
-	
-	// check to see if we can see the actor
-	if (UDodgeballFunctionLibrary::CanSeeActor(GetWorld(), GetActorLocation(), TargetActor, IgnoreList))
-	{
-		// get rotation needed to target TargetActor
-		const FVector Start = GetActorLocation();
-		const FVector End = TargetActor->GetActorLocation();
-
-		// calc rotation transform
-		const FRotator LookAtRotation = UKismetMathLibrary::FindLookAtRotation(Start, End);
-
-		// set new rotation
-		SetActorRotation(LookAtRotation);
-		return true;
-	}
-	return false;
+	// Set target to the player
+	LookAtActorComponent->SetTarget(PlayerCharacter);
 }
 
 void AEnemyCharacter::ThrowDodgeball() const
@@ -74,11 +55,8 @@ void AEnemyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	// Get character currently controlled by the player
-	const ACharacter* PlayerCharacter = UGameplayStatics::GetPlayerCharacter(this, 0); 
-
 	// Look at player object
-	bCanSeePlayer = LookAtActor(PlayerCharacter);
+	bCanSeePlayer = LookAtActorComponent->CanSeeTarget();
 
 	if (bCanSeePlayer != bPreviousCanSeePlayer)
 	{

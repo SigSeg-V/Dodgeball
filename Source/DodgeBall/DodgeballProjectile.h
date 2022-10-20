@@ -16,6 +16,12 @@ public:
 	// Sets default values for this actor's properties
 	ADodgeballProjectile();
 
+
+	FORCEINLINE class UProjectileMovementComponent* GetProjectileMovementComponent() const { return ProjectileMovement; }
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Dodgeball, meta = (AllowPrivateAccess = "true"))
 	class USphereComponent* SphereComponent;
 
@@ -24,16 +30,17 @@ public:
 	
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const
-	           FHitResult& Hit);
+			   FHitResult& Hit);
 
 	UPROPERTY(EditAnywhere, Category = Dodgeball)
 	float Damage = 34.f;
-	
-	FORCEINLINE class UProjectileMovementComponent* GetProjectileMovementComponent() const { return ProjectileMovement; }
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
 
+	UPROPERTY(EditAnywhere, Category = Sound)
+	class USoundBase* BounceSound;
+
+	UPROPERTY(EditDefaultsOnly, Category = Sound)
+	class USoundAttenuation* BounceSoundAttenuation; 
+	
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

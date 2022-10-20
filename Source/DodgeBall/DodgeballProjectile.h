@@ -38,8 +38,15 @@ protected:
 	UPROPERTY(EditAnywhere, Category = Sound)
 	class USoundBase* BounceSound;
 
+	UPROPERTY(EditAnywhere, Category = Sound)
+	class USoundBase* HitSound;
+	
 	UPROPERTY(EditDefaultsOnly, Category = Sound)
-	class USoundAttenuation* BounceSoundAttenuation; 
+	class USoundAttenuation* BounceSoundAttenuation;
+
+	// The particles that spawn when the player gets hit
+	UPROPERTY(EditAnywhere, Category = Particles)
+	class UParticleSystem* HitParticles;
 	
 public:	
 	// Called every frame

@@ -53,8 +53,18 @@ void ADodgeballProjectile::OnHit(UPrimitiveComponent *HitComp, AActor *OtherActo
 			HealthComponent->LoseHealth(Damage);
 		}
 	}
-	Destroy();
-
+	
+	// Emit particles before destruction
+	if (HitParticles != nullptr && HitSound != nullptr)
+	{
+		UGameplayStatics::SpawnEmitterAtLocation(this, HitParticles,
+			GetActorLocation(), GetActorRotation());
+		
+		UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation(),
+			1, FMath::RandRange(0.7, 1.3), 0, BounceSoundAttenuation);
+		
+	}
+	
 	// delete when hit player
 	Destroy();
 }

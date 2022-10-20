@@ -3,7 +3,9 @@
 #include "DodgeBallCharacter.h"
 
 #include "DodgeBallGameMode.h"
+#include "DodgeballPlayerController.h"
 #include "HealthComponent.h"
+#include "RestartWidget.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
@@ -155,7 +157,15 @@ void ADodgeBallCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Lo
 
 void ADodgeBallCharacter::OnDeath_Implementation()
 {
-	UKismetSystemLibrary::QuitGame(this, nullptr, EQuitPreference::Quit, true);
+	// impl restart game UI
+		
+	// get our current player controller
+	ADodgeballPlayerController* PlayerController = Cast<ADodgeballPlayerController>(GetController());
+
+	// early return if player controller doesnt exist
+	if (PlayerController == nullptr){ return; }
+	
+	PlayerController->ShowRestartWidget();
 }
 
 void ADodgeBallCharacter::TurnAtRate(float Rate)

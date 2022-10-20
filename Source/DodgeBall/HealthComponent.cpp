@@ -23,9 +23,16 @@ void UHealthComponent::LoseHealth(int Damage)
 	// cap to +ve nums to make sure no strange bugs can occur from underflow
 	Health = (Health > 0) * Health;
 
-	if (!Health && GetOwner()->Implements<UHealthInterface>())
+	if (GetOwner()->Implements<UHealthInterface>())
 	{
-		IHealthInterface::Execute_OnDeath(GetOwner());
+		if (!Health)
+		{
+			IHealthInterface::Execute_OnDeath(GetOwner());
+		}
+		else
+		{
+			IHealthInterface::Execute_OnTakeDamage(GetOwner());
+		}
 	}
 }
 

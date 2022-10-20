@@ -168,6 +168,17 @@ void ADodgeBallCharacter::OnDeath_Implementation()
 	PlayerController->ShowRestartWidget();
 }
 
+void ADodgeBallCharacter::OnTakeDamage_Implementation()
+{
+	// get our current player controller
+	ADodgeballPlayerController* PlayerController = Cast<ADodgeballPlayerController>(GetController());
+
+	// early return if player controller doesnt exist
+	if (PlayerController == nullptr){ return; }
+	
+	PlayerController->UpdateHealthPercent(HealthComponent->GetHealthPercent());
+}
+
 void ADodgeBallCharacter::TurnAtRate(float Rate)
 {
 	// calculate delta for this frame from the rate information

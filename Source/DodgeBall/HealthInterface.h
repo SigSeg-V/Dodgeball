@@ -29,5 +29,12 @@ public:
 
 	// C++ impl of blueprint interface
 	virtual void OnDeath_Implementation() = 0;
+
+	// blueprint interface of the dmg commands
+	UFUNCTION(BlueprintNativeEvent, Category = Health)
+	void OnTakeDamage();
+
+	// C++ impl of blueprint interface
+	virtual void OnTakeDamage_Implementation() = 0;
 	
 };

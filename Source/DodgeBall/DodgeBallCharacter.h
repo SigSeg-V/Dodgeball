@@ -46,6 +46,8 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Input)
 	float TurnRateGamepad;
 
+	virtual void OnTakeDamage_Implementation() override;
+	
 protected:
 
 	void Move(const FInputActionValue &Value);

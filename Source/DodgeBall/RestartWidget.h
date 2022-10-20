@@ -19,6 +19,9 @@ class DODGEBALL_API URestartWidget : public UUserWidget
 	UPROPERTY(meta=(BindWidget, OptionalWidget = true))
 	class UButton* RestartButton;
 	
+	UPROPERTY(meta=(BindWidget, OptionalWidget = true))
+	class UButton* ExitButton;
+	
 	virtual void NativeOnInitialized() override;
 	
 protected:
@@ -26,5 +29,7 @@ protected:
 	UFUNCTION()
 	void OnRestartClicked();
 
+	UFUNCTION()
+	void OnExitClicked();
 	
 };
